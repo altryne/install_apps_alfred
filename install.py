@@ -38,19 +38,27 @@ print obj
 
 def extract_files(dirname):
 	for root, dirs, files in os.walk(dirname, True, None):
+		remove = [".background",".Trashes",".DS_Store","Applications"]
+
 		for idir in dirs:
+			if dir in remove:
+				continue
 			dname, ext = os.path.splitext(idir)
 			if (ext == '.app'):
 				path = os.path.join(root, idir)
 				try:
-					shutil.copytree(path, os.path.join(APP_FOLDER, idir), symlinks=False)
+					shutil.copytree(path, os.path.join(APP_FOLDER, idir), symlinks=True)
 					notify.notify("Success!", "%s was installed!" % dname, "Enjoy!", sound=True, delay=5)
 				except Exception as e:
+					print e
 					notify.notify("Oooops", "Something went wrong", "%s" % e, sound=True,delay=5)
 				return
 
 
+
 		for lfile in files:
+			if lfile in remove:
+				continue
 			fname, ext = os.path.splitext(lfile)
 			if not fname.startswith('.') and ext == '.dmg':
 				print 'DMG FOUND!! install dmg!'
@@ -135,7 +143,7 @@ try:
 
 	# cleanup remove downloaded file
 
-	# os.remove(filename)
+	os.remove(filename)
 
 except Exception as e:
 	print 'oops',e
