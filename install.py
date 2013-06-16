@@ -17,7 +17,7 @@ DOWNLOADS_FOLDER = os.path.join(os.path.expanduser('~'), 'Downloads')
 APP_FOLDER = os.path.join(os.path.expanduser('~'), 'Applications')
 
 
-os.chdir(DOWNLOADS_FOLDER)
+
 
 
 def get_raw_file(request_data=None):
@@ -109,7 +109,9 @@ try:
     name = obj["url"][1:][:-1].split('/')[-1]
     filename = os.path.join(DOWNLOADS_FOLDER, name)
 
+
     bar = ProgressBar(title="Downloading Started : Downloading %s V. %s " % (name, obj["version"]))
+    os.chdir(DOWNLOADS_FOLDER)
 
     def prg(count, blockSize, totalSize):
 
