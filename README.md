@@ -1,3 +1,5 @@
+[![Build Status](https://drone.io/github.com/altryne/install_apps_alfred/status.png)](https://drone.io/github.com/altryne/install_apps_alfred/latest)
+
 #Download and Install mac apps Alfred wolkflow
  
 ![image](http://d.pr/i/Esrf+.png)
