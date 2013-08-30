@@ -16,14 +16,9 @@ import os, alfred
 DOWNLOADS_FOLDER = os.path.join(os.path.expanduser('~'), 'Downloads')
 APP_FOLDER = os.path.join(os.path.expanduser('~'), 'Applications')
 
-
-
-
-
 def get_raw_file(request_data=None):
     request_url = query
-    request_headers = {'Content-Type': 'application/json; charset=UTF-8', 'X-Accept': 'application/json'}
-    request = urllib2.Request(request_url, request_data, request_headers)
+    request = urllib2.Request(request_url, request_data, {})
     response = urllib2.urlopen(request)
     return response.read().splitlines()
 
@@ -108,9 +103,15 @@ try:
     url = obj["url"][1:][:-1]
     name = obj["url"][1:][:-1].split('/')[-1]
     filename = os.path.join(DOWNLOADS_FOLDER, name)
-
+    name, ext = os.path.splitext(filename)
 
     bar = ProgressBar(title="Downloading Started : Downloading %s V. %s " % (name, obj["version"]))
+
+    if(ext not in [".app",".zip",".pkg"]):
+        bar.update(0, message="Can't handle files of type %s" % ext)
+        time.sleep(2)
+        raise
+
     os.chdir(DOWNLOADS_FOLDER)
 
     def prg(count, blockSize, totalSize):
@@ -129,7 +130,7 @@ try:
 
     # try to unpack
 
-    name, ext = os.path.splitext(filename)
+
 
     if (ext == '.zip'):
         print "zip file found, unzipping"
@@ -140,6 +141,7 @@ try:
         bar.update(100, message="Mounting....")
         mount_and_install(filename)
     else:
+        bar.update(100, message="Can't handle files of type %s" % ext)
         print "can't handle this file"
 
     # cleanup remove downloaded file
@@ -149,7 +151,7 @@ try:
     bar.finish()
 
 except Exception as e:
-    print 'oops', e
+    print 'oops : %s' % e
 
 
 
