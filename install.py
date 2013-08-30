@@ -107,7 +107,7 @@ try:
 
     bar = ProgressBar(title="Downloading Started : Downloading %s V. %s " % (name, obj["version"]))
 
-    if(ext not in [".app",".zip",".pkg"]):
+    if(ext not in [".app",".zip",".pkg",".dmg"]):
         bar.update(0, message="Can't handle files of type %s" % ext)
         time.sleep(2)
         raise
