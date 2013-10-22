@@ -12,7 +12,7 @@ If the app is in brew-casks directory, workflow will download/extract/mount and 
  
 *It won't run over your app though, so if you want to update, remove the app first.
  
-#[Download](https://github.com/altryne/install_apps_alfred/blob/master/Install%20Mac%20Apps.alfredworkflow)
+#[Download](https://drone.io/github.com/altryne/install_apps_alfred/files/install_apps.alfredworkflow)
  
 As always, feedback is more then welcome, help me test this guys, this took my whole weekend 
  
