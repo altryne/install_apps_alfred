@@ -2,7 +2,7 @@
 
 #Download and Install mac apps Alfred wolkflow
  
-![image](http://d.pr/i/Esrf+.png)
+![image](http://3-ps.googleusercontent.com/h/www.packal.org/sites/default/files/public/workflow-files/mealexwinstallapps/screenshots/xscreenshot2014-04-11154338.png.pagespeed.ic.ljl2b21aBX.png)
  
 A simple workflow based on the community managed app list at homebrew-cask
  

@@ -1,5 +1,5 @@
 {
-    "version" : 1.2,
-    "download_url" : "https://github.com/altryne/install_apps_alfred/raw/master/Install%20Mac%20Apps.alfredworkflow",
-    "description" : "Updated with a progress bar"
+    "version" : 1.3,
+    "download_url" : "https://drone.io/github.com/altryne/install_apps_alfred/files/install_apps.alfredworkflow",
+    "description" : "Fixed incorrect URL"
 }
